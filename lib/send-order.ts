@@ -42,40 +42,25 @@ async function sendToTelegram(order: OrderPayload): Promise<void> {
 
 export async function sendOrder(payload: OrderPayload): Promise<{ success: boolean; error?: string }> {
   const sheetsEndpoint = process.env.NEXT_PUBLIC_SHEETS_ENDPOINT
-  const botEndpoint = process.env.NEXT_PUBLIC_BOT_ENDPOINT
 
-  // Step 1: Send to Google Sheets and Bot webhook first
-  const results = await Promise.allSettled([
-    sheetsEndpoint
-      ? fetch(sheetsEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        })
-      : Promise.resolve(),
-
-    botEndpoint
-      ? fetch(botEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        })
-      : Promise.resolve(),
-  ])
-
-  const hasError = results.some((r) => r.status === "rejected")
-
-  // If Sheets/Bot request fails, DO NOT send Telegram message
-  if (hasError) {
-    console.error("Order submission errors:", results)
-    return { success: false, error: "Failed to submit order" }
+  // Step 1: Send to Google Sheets
+  if (sheetsEndpoint) {
+    try {
+      await fetch(sheetsEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+    } catch (err) {
+      console.error("Google Sheets error:", err)
+      return { success: false, error: "Failed to submit order" }
+    }
   }
 
-  // Step 2: Send Telegram notification via server-side API route
+  // Step 2: Send Telegram notification (never blocks success)
   try {
     await sendToTelegram(payload)
   } catch (error) {
-    // Telegram failure should not affect user success message
     console.error("[Telegram] Failed to send notification:", error)
   }
 

@@ -1434,32 +1434,28 @@ async function sendToTelegram(order) {
 }
 async function sendOrder(payload) {
     const sheetsEndpoint = ("TURBOPACK compile-time value", "https://script.google.com/macros/s/AKfycbyKiXpXQiIVsXJFLXnjnYwgDDnP4kQBEunGsmL2udVbNvb5jd3nv5AvVN0a7r6v65P2kQ/exec");
-    const botEndpoint = ("TURBOPACK compile-time value", "");
-    // Step 1: Send to Google Sheets and Bot webhook first
-    const results = await Promise.allSettled([
-        ("TURBOPACK compile-time truthy", 1) ? fetch(sheetsEndpoint, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        }) : "TURBOPACK unreachable",
-        ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : Promise.resolve()
-    ]);
-    const hasError = results.some((r)=>r.status === "rejected");
-    // If Sheets/Bot request fails, DO NOT send Telegram message
-    if (hasError) {
-        console.error("Order submission errors:", results);
-        return {
-            success: false,
-            error: "Failed to submit order"
-        };
+    // Step 1: Send to Google Sheets
+    if ("TURBOPACK compile-time truthy", 1) {
+        try {
+            await fetch(sheetsEndpoint, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            console.error("Google Sheets error:", err);
+            return {
+                success: false,
+                error: "Failed to submit order"
+            };
+        }
     }
-    // Step 2: Send Telegram notification via server-side API route
+    // Step 2: Send Telegram notification (never blocks success)
     try {
         await sendToTelegram(payload);
     } catch (error) {
-        // Telegram failure should not affect user success message
         console.error("[Telegram] Failed to send notification:", error);
     }
     return {

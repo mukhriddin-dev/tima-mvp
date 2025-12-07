@@ -30,6 +30,9 @@ const districts = [
   "Yashnaobod",
 ]
 
+
+const TELEGRAM_CHANNEL_URL = "https://t.me/tima_kids_uz"
+
 export const OrderModal = memo(function OrderModal({
   isOpen,
   onClose,
@@ -51,6 +54,14 @@ export const OrderModal = memo(function OrderModal({
   const modalRef = useRef<HTMLDivElement>(null)
   const startY = useRef<number>(0)
   const currentY = useRef<number>(0)
+
+  // ❗ Bitta umumiy close handler – modal yopilganda Telegramga yo'naltiradi
+  const handleClose = useCallback(() => {
+    onClose()
+    if (typeof window !== "undefined") {
+      window.location.href = TELEGRAM_CHANNEL_URL
+    }
+  }, [onClose])
 
   useEffect(() => {
     if (!isOpen) {
@@ -117,14 +128,15 @@ export const OrderModal = memo(function OrderModal({
     if (modalRef.current) {
       modalRef.current.style.transition = "transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)"
       if (diff > 100) {
-        onClose()
+        // oldin onClose edi
+        handleClose()
       } else {
         modalRef.current.style.transform = "translateY(0)"
       }
     }
     startY.current = 0
     currentY.current = 0
-  }, [onClose])
+  }, [handleClose])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -172,7 +184,8 @@ export const OrderModal = memo(function OrderModal({
           transition-opacity duration-300
           ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
         `}
-        onClick={onClose}
+        // oldin onClose edi
+        onClick={handleClose}
       />
 
       <div
@@ -198,7 +211,8 @@ export const OrderModal = memo(function OrderModal({
         </div>
 
         <button
-          onClick={onClose}
+          // oldin onClose edi
+          onClick={handleClose}
           className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
           aria-label="Close"
         >
@@ -213,7 +227,8 @@ export const OrderModal = memo(function OrderModal({
               </div>
               <p className="text-foreground font-medium leading-relaxed px-4">{t.successMessage}</p>
               <button
-                onClick={onClose}
+                // oldin onClose edi
+                onClick={handleClose}
                 className="mt-4 px-8 py-3 bg-secondary text-foreground font-semibold rounded-2xl ios-press"
               >
                 {t.closeButton}

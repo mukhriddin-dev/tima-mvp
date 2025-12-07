@@ -1956,6 +1956,8 @@ const districts = [
     "Yunusobod",
     "Yashnaobod"
 ];
+// 🔗 Telegram kanal linkini shu yerda almashtirasiz
+const TELEGRAM_CHANNEL_URL = "https://t.me/your_channel_name";
 const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["memo"])(function OrderModal({ isOpen, onClose, product, selectedColor, selectedSizeData, currentImageUrl }) {
     const { t, language } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$contexts$2f$language$2d$context$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLanguage"])();
     const [phone, setPhone] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("+998 ");
@@ -1969,6 +1971,14 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
     const modalRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const startY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
     const currentY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    // ❗ Bitta umumiy close handler – modal yopilganda Telegramga yo'naltiradi
+    const handleClose = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
+        onClose();
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+    }, [
+        onClose
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!isOpen) {
             setTimeout(()=>{
@@ -2030,7 +2040,8 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
         if (modalRef.current) {
             modalRef.current.style.transition = "transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)";
             if (diff > 100) {
-                onClose();
+                // oldin onClose edi
+                handleClose();
             } else {
                 modalRef.current.style.transform = "translateY(0)";
             }
@@ -2038,7 +2049,7 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
         startY.current = 0;
         currentY.current = 0;
     }, [
-        onClose
+        handleClose
     ]);
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -2083,10 +2094,11 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
           transition-opacity duration-300
           ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
         `,
-                onClick: onClose
+                // oldin onClose edi
+                onClick: handleClose
             }, void 0, false, {
                 fileName: "[project]/components/order-modal.tsx",
-                lineNumber: 169,
+                lineNumber: 181,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2113,16 +2125,17 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                             className: "w-9 h-[5px] bg-muted-foreground/25 rounded-full"
                         }, void 0, false, {
                             fileName: "[project]/components/order-modal.tsx",
-                            lineNumber: 197,
+                            lineNumber: 210,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/order-modal.tsx",
-                        lineNumber: 196,
+                        lineNumber: 209,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: onClose,
+                        // oldin onClose edi
+                        onClick: handleClose,
                         className: "absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-secondary hover:bg-secondary/80 transition-colors",
                         "aria-label": "Close",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
@@ -2130,12 +2143,12 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                             strokeWidth: 2
                         }, void 0, false, {
                             fileName: "[project]/components/order-modal.tsx",
-                            lineNumber: 205,
+                            lineNumber: 219,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/order-modal.tsx",
-                        lineNumber: 200,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2150,12 +2163,12 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                         strokeWidth: 2.5
                                     }, void 0, false, {
                                         fileName: "[project]/components/order-modal.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 226,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 225,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2163,22 +2176,23 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                     children: t.successMessage
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 214,
+                                    lineNumber: 228,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: onClose,
+                                    // oldin onClose edi
+                                    onClick: handleClose,
                                     className: "mt-4 px-8 py-3 bg-secondary text-foreground font-semibold rounded-2xl ios-press",
                                     children: t.closeButton
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 215,
+                                    lineNumber: 229,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/order-modal.tsx",
-                            lineNumber: 210,
+                            lineNumber: 224,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                             onSubmit: handleSubmit,
@@ -2192,7 +2206,7 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             children: t.nameLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 226,
+                                            lineNumber: 241,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2200,35 +2214,6 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             value: name,
                                             onChange: (e)=>setName(e.target.value),
                                             placeholder: t.namePlaceholder,
-                                            className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all text-[16px]",
-                                            required: true
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 229,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 225,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-1.5",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "text-[11px] font-semibold text-muted-foreground uppercase tracking-wider",
-                                            children: t.phoneLabel
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 241,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            type: "tel",
-                                            value: phone,
-                                            onChange: handlePhoneChange,
-                                            placeholder: t.phonePlaceholder,
                                             className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all text-[16px]",
                                             required: true
                                         }, void 0, false, {
@@ -2247,38 +2232,20 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-[11px] font-semibold text-muted-foreground uppercase tracking-wider",
-                                            children: t.districtLabel
+                                            children: t.phoneLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
                                             lineNumber: 256,
                                             columnNumber: 17
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                            value: district,
-                                            onChange: (e)=>setDistrict(e.target.value),
-                                            className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground focus:ring-2 focus:ring-foreground/15 transition-all appearance-none text-[16px]",
-                                            required: true,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                    value: "",
-                                                    disabled: true,
-                                                    className: "text-muted-foreground",
-                                                    children: t.districtPlaceholder
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/order-modal.tsx",
-                                                    lineNumber: 265,
-                                                    columnNumber: 19
-                                                }, this),
-                                                districts.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                        value: d,
-                                                        children: d
-                                                    }, d, false, {
-                                                        fileName: "[project]/components/order-modal.tsx",
-                                                        lineNumber: 269,
-                                                        columnNumber: 21
-                                                    }, this))
-                                            ]
-                                        }, void 0, true, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "tel",
+                                            value: phone,
+                                            onChange: handlePhoneChange,
+                                            placeholder: t.phonePlaceholder,
+                                            className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all text-[16px]",
+                                            required: true
+                                        }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
                                             lineNumber: 259,
                                             columnNumber: 17
@@ -2294,10 +2261,57 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-[11px] font-semibold text-muted-foreground uppercase tracking-wider",
+                                            children: t.districtLabel
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/order-modal.tsx",
+                                            lineNumber: 271,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                            value: district,
+                                            onChange: (e)=>setDistrict(e.target.value),
+                                            className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground focus:ring-2 focus:ring-foreground/15 transition-all appearance-none text-[16px]",
+                                            required: true,
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: "",
+                                                    disabled: true,
+                                                    className: "text-muted-foreground",
+                                                    children: t.districtPlaceholder
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/order-modal.tsx",
+                                                    lineNumber: 280,
+                                                    columnNumber: 19
+                                                }, this),
+                                                districts.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: d,
+                                                        children: d
+                                                    }, d, false, {
+                                                        fileName: "[project]/components/order-modal.tsx",
+                                                        lineNumber: 284,
+                                                        columnNumber: 21
+                                                    }, this))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/order-modal.tsx",
+                                            lineNumber: 274,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/order-modal.tsx",
+                                    lineNumber: 270,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "space-y-1.5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "text-[11px] font-semibold text-muted-foreground uppercase tracking-wider",
                                             children: t.addressLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 278,
+                                            lineNumber: 293,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2308,13 +2322,13 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all text-[16px]"
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 281,
+                                            lineNumber: 296,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 277,
+                                    lineNumber: 292,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2325,7 +2339,7 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             children: t.commentLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 292,
+                                            lineNumber: 307,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -2336,13 +2350,13 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all resize-none text-[16px]"
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 295,
+                                            lineNumber: 310,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 291,
+                                    lineNumber: 306,
                                     columnNumber: 15
                                 }, this),
                                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2350,7 +2364,7 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                     children: error
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 304,
+                                    lineNumber: 319,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2363,41 +2377,41 @@ const OrderModal = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
                                             className: "w-5 h-5 border-[2.5px] border-background/30 border-t-background rounded-full animate-spin"
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 313,
+                                            lineNumber: 328,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/order-modal.tsx",
-                                        lineNumber: 312,
+                                        lineNumber: 327,
                                         columnNumber: 19
                                     }, this) : t.submitOrder
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 306,
+                                    lineNumber: 321,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/order-modal.tsx",
-                            lineNumber: 223,
+                            lineNumber: 238,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/order-modal.tsx",
-                        lineNumber: 208,
+                        lineNumber: 222,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "pb-safe"
                     }, void 0, false, {
                         fileName: "[project]/components/order-modal.tsx",
-                        lineNumber: 324,
+                        lineNumber: 339,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/order-modal.tsx",
-                lineNumber: 178,
+                lineNumber: 191,
                 columnNumber: 7
             }, this)
         ]

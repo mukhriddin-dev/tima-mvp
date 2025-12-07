@@ -1837,7 +1837,8 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                         whileTap: {
                             scale: 0.98
                         },
-                        className: " w-full py-4 bg-foreground text-background  font-semibold text-base tracking-tight rounded-2xl shadow-sm ios-press transition-all duration-200 active:shadow-none ",
+                        id: "lead",
+                        className: " w-full py-4 bg-foreground text-background  font-semibold text-base tracking-tight rounded-2xl shadow-sm ios-press transition-all duration-200 active:shadow-none lead-button ",
                         children: t.orderButton
                     }, void 0, false, {
                         fileName: "[project]/components/product-page.tsx",
@@ -1877,7 +1878,7 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                             }
                         }, void 0, false, {
                             fileName: "[project]/components/product-page.tsx",
-                            lineNumber: 127,
+                            lineNumber: 129,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1912,12 +1913,12 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                             className: "w-9 h-1 rounded-full bg-muted-foreground/25"
                                         }, void 0, false, {
                                             fileName: "[project]/components/product-page.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 156,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/product-page.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 155,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1930,20 +1931,20 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                                         children: t.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/product-page.tsx",
-                                                        lineNumber: 161,
+                                                        lineNumber: 163,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$product$2d$description$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ProductDescription"], {
                                                         description: product.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/product-page.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 166,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/product-page.tsx",
-                                                lineNumber: 160,
+                                                lineNumber: 162,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1954,7 +1955,7 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                                         children: t.selectColor
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/product-page.tsx",
-                                                        lineNumber: 169,
+                                                        lineNumber: 171,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$color$2d$selector$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ColorSelector"], {
@@ -1963,13 +1964,13 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                                         onColorChange: onColorChange
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/product-page.tsx",
-                                                        lineNumber: 172,
+                                                        lineNumber: 174,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/product-page.tsx",
-                                                lineNumber: 168,
+                                                lineNumber: 170,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1980,18 +1981,18 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                                     sizeRangeId: product.sizeRangeId
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/product-page.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 183,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/product-page.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 182,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/product-page.tsx",
-                                        lineNumber: 158,
+                                        lineNumber: 160,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2007,34 +2008,35 @@ const ProductPage = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proj
                                             whileTap: {
                                                 scale: 0.98
                                             },
-                                            className: " w-full py-4 bg-foreground text-background  font-semibold text-base tracking-tight rounded-2xl shadow-sm transition-all duration-200 active:shadow-none ",
+                                            className: " lead-button w-full py-4 bg-foreground text-background  font-semibold text-base tracking-tight rounded-2xl shadow-sm transition-all duration-200 active:shadow-none ",
+                                            id: "lead-button",
                                             children: t.orderButton
                                         }, void 0, false, {
                                             fileName: "[project]/components/product-page.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 193,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/product-page.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 192,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/product-page.tsx",
-                                lineNumber: 151,
+                                lineNumber: 153,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/product-page.tsx",
-                            lineNumber: 138,
+                            lineNumber: 140,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "[project]/components/product-page.tsx",
-                lineNumber: 123,
+                lineNumber: 125,
                 columnNumber: 7
             }, this)
         ]
@@ -2164,8 +2166,7 @@ const districts = [
     "Yunusobod",
     "Yashnaobod"
 ];
-// 🔗 Telegram kanal linkini shu yerda almashtirasiz
-const TELEGRAM_CHANNEL_URL = "https://t.me/your_channel_name";
+const TELEGRAM_CHANNEL_URL = "https://t.me/tima_kids_uz";
 const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["memo"])(_c = _s(function OrderModal({ isOpen, onClose, product, selectedColor, selectedSizeData, currentImageUrl }) {
     _s();
     const { t, language } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$contexts$2f$language$2d$context$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLanguage"])();
@@ -2410,7 +2411,6 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    // oldin onClose edi
                                     onClick: handleClose,
                                     className: "mt-4 px-8 py-3 bg-secondary text-foreground font-semibold rounded-2xl ios-press",
                                     children: t.closeButton
@@ -2436,7 +2436,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             children: t.nameLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 240,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2448,13 +2448,13 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 244,
+                                            lineNumber: 243,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 240,
+                                    lineNumber: 239,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2465,7 +2465,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             children: t.phoneLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 256,
+                                            lineNumber: 255,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2477,13 +2477,13 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 259,
+                                            lineNumber: 258,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 255,
+                                    lineNumber: 254,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2494,7 +2494,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             children: t.districtLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 271,
+                                            lineNumber: 270,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2510,7 +2510,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                                     children: t.districtPlaceholder
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/order-modal.tsx",
-                                                    lineNumber: 280,
+                                                    lineNumber: 279,
                                                     columnNumber: 19
                                                 }, this),
                                                 districts.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2518,19 +2518,19 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                                         children: d
                                                     }, d, false, {
                                                         fileName: "[project]/components/order-modal.tsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 283,
                                                         columnNumber: 21
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 274,
+                                            lineNumber: 273,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 270,
+                                    lineNumber: 269,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2541,7 +2541,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             children: t.addressLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 293,
+                                            lineNumber: 292,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2552,13 +2552,13 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all text-[16px]"
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 295,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 292,
+                                    lineNumber: 291,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2569,7 +2569,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             children: t.commentLabel
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 307,
+                                            lineNumber: 306,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -2580,13 +2580,13 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                             className: "w-full px-4 py-3.5 bg-secondary rounded-xl text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-foreground/15 transition-all resize-none text-[16px]"
                                         }, void 0, false, {
                                             fileName: "[project]/components/order-modal.tsx",
-                                            lineNumber: 310,
+                                            lineNumber: 309,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 306,
+                                    lineNumber: 305,
                                     columnNumber: 15
                                 }, this),
                                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2594,13 +2594,14 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                     children: error
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 319,
+                                    lineNumber: 318,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     type: "submit",
+                                    id: "submit-form",
                                     disabled: isSubmitting,
-                                    className: "w-full py-3.5 bg-foreground text-background font-semibold text-[17px] rounded-2xl ios-press disabled:opacity-60 shadow-sm",
+                                    className: "w-full py-3.5 submit-form bg-foreground text-background font-semibold text-[17px] rounded-2xl ios-press disabled:opacity-60 shadow-sm",
                                     children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "flex items-center justify-center",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2617,13 +2618,13 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                                     }, this) : t.submitOrder
                                 }, void 0, false, {
                                     fileName: "[project]/components/order-modal.tsx",
-                                    lineNumber: 321,
+                                    lineNumber: 320,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/order-modal.tsx",
-                            lineNumber: 238,
+                            lineNumber: 237,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
@@ -2635,7 +2636,7 @@ const OrderModal = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$proje
                         className: "pb-safe"
                     }, void 0, false, {
                         fileName: "[project]/components/order-modal.tsx",
-                        lineNumber: 339,
+                        lineNumber: 337,
                         columnNumber: 9
                     }, this)
                 ]

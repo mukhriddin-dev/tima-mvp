@@ -227,7 +227,6 @@ export const OrderModal = memo(function OrderModal({
               </div>
               <p className="text-foreground font-medium leading-relaxed px-4">{t.successMessage}</p>
               <button
-                // oldin onClose edi
                 onClick={handleClose}
                 className="mt-4 px-8 py-3 bg-secondary text-foreground font-semibold rounded-2xl ios-press"
               >
@@ -335,8 +334,6 @@ export const OrderModal = memo(function OrderModal({
             </form>
           )}
         </div>
-
-        {/* Safe area padding */}
         <div className="pb-safe" />
       </div>
     </>

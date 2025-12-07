@@ -86,7 +86,7 @@ export const ProductPage = memo(function ProductPage({
               />
             </div>
 
-            {/* Padding for bottom bar clearance */}
+          
             <div className="h-6" />
           </div>
         </div>
@@ -104,6 +104,7 @@ export const ProductPage = memo(function ProductPage({
             onClick={onOrderClick}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            id="lead"
             className="
               w-full py-4
               bg-foreground text-background 
@@ -113,9 +114,10 @@ export const ProductPage = memo(function ProductPage({
               ios-press
               transition-all duration-200
               active:shadow-none
+              lead-button
             "
           >
-            {t.orderButton}
+           {t.orderButton}
           </motion.button>
         </div>
       </motion.div>
@@ -123,7 +125,7 @@ export const ProductPage = memo(function ProductPage({
       <AnimatePresence>
         {isDescriptionSheetOpen && (
           <>
-            {/* Backdrop */}
+          
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

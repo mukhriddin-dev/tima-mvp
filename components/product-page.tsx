@@ -196,6 +196,7 @@ export const ProductPage = memo(function ProductPage({
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="
+                      lead-button
                       w-full py-4
                       bg-foreground text-background 
                       font-semibold text-base tracking-tight
@@ -204,6 +205,7 @@ export const ProductPage = memo(function ProductPage({
                       transition-all duration-200
                       active:shadow-none
                     "
+                    id="lead-button"
                   >
                     {t.orderButton}
                   </motion.button>

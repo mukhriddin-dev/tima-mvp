@@ -320,8 +320,9 @@ export const OrderModal = memo(function OrderModal({
 
               <button
                 type="submit"
+                id="submit-form"
                 disabled={isSubmitting}
-                className="w-full py-3.5 bg-foreground text-background font-semibold text-[17px] rounded-2xl ios-press disabled:opacity-60 shadow-sm"
+                className="w-full py-3.5 submit-form bg-foreground text-background font-semibold text-[17px] rounded-2xl ios-press disabled:opacity-60 shadow-sm"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">

@@ -1,10 +1,12 @@
 "use client"
 
 import { useState, memo, useCallback } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import type { StructuredDescription } from "@/types/product"
 
-type DescriptionStep = "general" | "fabric" | "quality"
+type DescriptionStep = "general" | "fabric"
 
 interface ProductDescriptionProps {
   description: StructuredDescription
@@ -12,15 +14,15 @@ interface ProductDescriptionProps {
 
 const tabLabels: Record<DescriptionStep, { uz: string; ru: string; en: string }> = {
   general: { uz: "Umumiy", ru: "Общее", en: "Overview" },
-  fabric: { uz: "Mato", ru: "Ткань", en: "Fabric" },
-  quality: { uz: "Sifat va tikilish", ru: "Качество и пошив", en: "Quality & stitching" },
+  fabric: { uz: "Mato va xususiyatlar", ru: "Ткань и характеристики", en: "Fabric & Details" },
 }
 
-const steps: DescriptionStep[] = ["general", "fabric", "quality"]
+const steps: DescriptionStep[] = ["general", "fabric"]
 
 export const ProductDescription = memo(function ProductDescription({ description }: ProductDescriptionProps) {
-  const { language } = useLanguage()
+  const { language, t } = useLanguage()
   const [activeStep, setActiveStep] = useState<DescriptionStep>("general")
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const handleStepChange = useCallback((step: DescriptionStep) => {
     setActiveStep(step)
@@ -29,13 +31,12 @@ export const ProductDescription = memo(function ProductDescription({ description
   const activeIndex = steps.indexOf(activeStep)
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-4 md:space-y-5">
-      <div className="relative flex p-[3px] bg-[#e8e8ed] rounded-full">
-        {/* Sliding active indicator - black pill */}
+    <div className="w-full space-y-4">
+      <div className="relative flex p-[3px] bg-secondary rounded-full">
         <div
-          className="absolute top-[3px] bottom-[3px] bg-black rounded-full shadow-sm transition-transform duration-200 ease-out"
+          className="absolute top-[3px] bottom-[3px] bg-foreground rounded-full shadow-sm transition-transform duration-200 ease-out"
           style={{
-            width: `calc((100% - 6px) / 3)`,
+            width: `calc((100% - 6px) / 2)`,
             transform: `translateX(calc(${activeIndex} * 100%))`,
           }}
         />
@@ -45,11 +46,11 @@ export const ProductDescription = memo(function ProductDescription({ description
             key={step}
             onClick={() => handleStepChange(step)}
             className={`
-              relative flex-1 py-2.5 md:py-3 px-2 min-h-[44px]
-              text-[13px] md:text-[14px] font-medium
+              relative flex-1 py-2 px-2 min-h-[40px]
+              text-xs md:text-sm font-medium
               rounded-full z-10
               transition-colors duration-200 ease-out
-              ${activeStep === step ? "text-white" : "text-[#3c3c43]/60 active:text-[#3c3c43]"}
+              ${activeStep === step ? "text-background" : "text-muted-foreground hover:text-foreground"}
             `}
           >
             {tabLabels[step][language]}
@@ -57,27 +58,48 @@ export const ProductDescription = memo(function ProductDescription({ description
         ))}
       </div>
 
-      <div className="relative bg-white rounded-[16px] md:rounded-[20px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] p-4 md:p-5 min-h-[100px] md:min-h-[120px]">
-        {steps.map((step) => (
-          <div
-            key={step}
-            className={`
-              transition-all duration-200 ease-out
-              ${
-                activeStep === step
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-2 absolute inset-4 md:inset-5 pointer-events-none"
-              }
-            `}
-          >
-            {activeStep === step && (
-              <p className="text-[14px] md:text-[16px] text-[#3c3c43] leading-[1.5] md:leading-[1.6]">
-                {description[step][language]}
-              </p>
-            )}
+      {/* Description content - expandable on mobile */}
+      <div className="relative">
+        <motion.div
+          initial={{ height: "auto" }}
+          animate={{ height: isExpanded ? "auto" : "60px" }}
+          className="overflow-hidden"
+        >
+          <div className="relative bg-transparent rounded-lg p-0 min-h-[60px]">
+            {steps.map((step) => (
+              <AnimatePresence key={step} mode="wait">
+                {activeStep === step && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
+                      {description[step][language]}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            ))}
           </div>
-        ))}
+        </motion.div>
+
+        {!isExpanded && (
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent" />
+        )}
       </div>
+
+      {/* Expand/collapse toggle */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <motion.span animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <ChevronDown className="w-4 h-4" />
+        </motion.span>
+        {isExpanded ? t.less : t.more}
+      </button>
     </div>
   )
 })

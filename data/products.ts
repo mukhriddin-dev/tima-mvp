@@ -4,13 +4,13 @@ export const products: Product[] = [
   {
     id: "kids-set-001",
     slug: "kids-sportswear-set",
-    price: 249000,
+    price: 495000,
     currency: "UZS",
     sizeRangeId: "110-150",
     name: {
-      uz: "Bolalar qishki sport kiyim to'plami",
-      ru: "Детский зимний спортивный комплект",
-      en: "Kids Winter Sportswear Set",
+      uz: "Qishgi mavsum uchun premium sifatdagi kurtka",
+      ru: "Премиальная куртка для зимнего сезона",
+      en: "Premium Winter Jacket",
     },
     description: {
       general: {

@@ -2,6 +2,7 @@
 
 import { memo, useState } from "react"
 import { Ruler } from "lucide-react"
+import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/language-context"
 import { SizeGuideModal } from "@/components/size-guide-modal"
 import type { ProductSize } from "@/types/product"
@@ -20,48 +21,42 @@ export const SizeSelector = memo(function SizeSelector({
   sizeRangeId,
 }: SizeSelectorProps) {
   const { language, t } = useLanguage()
-  const selectedSizeData = sizes.find((s) => s.value === selectedSize)
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false)
 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t.selectSize}</p>
+        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{t.selectSize}</p>
         <button
           onClick={() => setIsSizeGuideOpen(true)}
-          className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors active:scale-95"
         >
           <Ruler className="w-3.5 h-3.5" />
-          {t.sizeGuide}
+          <span className="text-[11px] font-medium">{t.sizeGuide}</span>
         </button>
       </div>
 
-      {/* Size buttons */}
-      <div className="flex gap-2 flex-wrap">
+      <div className="grid grid-cols-4 gap-2">
         {sizes.map((size) => (
-          <button
+          <motion.button
             key={size.value}
             onClick={() => onSizeChange(size.value)}
-            className={`px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
-              selectedSize === size.value ? "bg-foreground text-background" : "bg-secondary text-foreground"
-            }`}
+            className={`
+              py-2.5 px-1 rounded-xl font-medium text-xs
+              transition-all duration-200
+              ${
+                selectedSize === size.value
+                  ? "bg-foreground text-background shadow-sm"
+                  : "bg-secondary text-foreground hover:bg-secondary/80 active:bg-secondary/70"
+              }
+            `}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
           >
             {size.value} cm
-          </button>
+          </motion.button>
         ))}
       </div>
-
-      {/* Selected size info */}
-      {selectedSizeData && (
-        <div className="flex gap-4 mt-3 text-sm">
-          <span className="text-foreground">
-            <span className="text-muted-foreground">{t.sizeLabel}:</span> {selectedSizeData.value} cm
-          </span>
-          <span className="text-foreground">
-            <span className="text-muted-foreground">{t.ageLabel}:</span> {selectedSizeData.ageLabel[language]}
-          </span>
-        </div>
-      )}
 
       <SizeGuideModal
         isOpen={isSizeGuideOpen}

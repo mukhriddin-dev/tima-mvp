@@ -60,4 +60,3 @@ export async function sendOrder(payload: OrderPayload): Promise<{ success: boole
 
   return { success: true };
 }
-

@@ -26,6 +26,10 @@ type Translations = {
   closeButton: string
   priceLabel: string
   sizeGuide: string
+  description: string
+  more: string
+  less: string
+  moreDetails: string
 }
 
 const translations: Record<Language, Translations> = {
@@ -52,6 +56,10 @@ const translations: Record<Language, Translations> = {
     closeButton: "Yopish",
     priceLabel: "so'm",
     sizeGuide: "O'lcham qo'llanmasi",
+    description: "Mahsulot tafsifi",
+    more: "Ko'proq",
+    less: "Kamroq",
+    moreDetails: "Batafsil ma'lumot",
   },
   ru: {
     orderButton: "Заказать",
@@ -76,6 +84,10 @@ const translations: Record<Language, Translations> = {
     closeButton: "Закрыть",
     priceLabel: "сум",
     sizeGuide: "Таблица размеров",
+    description: "Описание товара",
+    more: "Подробнее",
+    less: "Свернуть",
+    moreDetails: "Подробнее о товаре",
   },
   en: {
     orderButton: "Order Now",
@@ -100,6 +112,10 @@ const translations: Record<Language, Translations> = {
     closeButton: "Close",
     priceLabel: "UZS",
     sizeGuide: "Size Guide",
+    description: "Product Description",
+    more: "More",
+    less: "Less",
+    moreDetails: "Learn More",
   },
 }
 

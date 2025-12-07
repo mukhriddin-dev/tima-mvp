@@ -1563,7 +1563,6 @@ __turbopack_context__.s([
     "sendOrder",
     ()=>sendOrder
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 function formatTelegramMessage(order) {
     return `🛍 *Yangi buyurtma!*
 
@@ -1604,26 +1603,21 @@ async function sendToTelegram(order) {
     }
 }
 async function sendOrder(payload) {
-    const sheetsEndpoint = ("TURBOPACK compile-time value", "https://script.google.com/macros/s/AKfycbyKiXpXQiIVsXJFLXnjnYwgDDnP4kQBEunGsmL2udVbNvb5jd3nv5AvVN0a7r6v65P2kQ/exec");
-    // Step 1: Send to Google Sheets
-    if ("TURBOPACK compile-time truthy", 1) {
-        try {
-            await fetch(sheetsEndpoint, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            });
-        } catch (err) {
-            console.error("Google Sheets error:", err);
-            return {
-                success: false,
-                error: "Failed to submit order"
-            };
-        }
+    try {
+        await fetch("/api/sheets", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+    } catch (err) {
+        console.error("Google Sheets error:", err);
+        return {
+            success: false,
+            error: "Failed to submit order"
+        };
     }
-    // Step 2: Send Telegram notification (never blocks success)
     try {
         await sendToTelegram(payload);
     } catch (error) {

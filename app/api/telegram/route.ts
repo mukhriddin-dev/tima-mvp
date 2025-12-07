@@ -30,8 +30,8 @@ _Vaqt: ${order.timestamp}_`
 
 export async function POST(request: NextRequest) {
   try {
-    const token = process.env.TELEGRAM_BOT_TOKEN
-    const chatId = process.env.TELEGRAM_CHANNEL_ID
+    const token = process.env.NEXT_TELEGRAM_BOT_TOKEN
+    const chatId = process.env.NEXT_TELEGRAM_CHANNEL_ID
 
     if (!token || !chatId) {
       console.warn("[Telegram] Credentials not configured, skipping notification")

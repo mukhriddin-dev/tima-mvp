@@ -41,28 +41,23 @@ async function sendToTelegram(order: OrderPayload): Promise<void> {
 }
 
 export async function sendOrder(payload: OrderPayload): Promise<{ success: boolean; error?: string }> {
-  const sheetsEndpoint = process.env.NEXT_PUBLIC_SHEETS_ENDPOINT
-
-  // Step 1: Send to Google Sheets
-  if (sheetsEndpoint) {
-    try {
-      await fetch(sheetsEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-    } catch (err) {
-      console.error("Google Sheets error:", err)
-      return { success: false, error: "Failed to submit order" }
-    }
-  }
-
-  // Step 2: Send Telegram notification (never blocks success)
   try {
-    await sendToTelegram(payload)
-  } catch (error) {
-    console.error("[Telegram] Failed to send notification:", error)
+    await fetch("/api/sheets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  } catch (err) {
+    console.error("Google Sheets error:", err);
+    return { success: false, error: "Failed to submit order" };
   }
 
-  return { success: true }
+  try {
+    await sendToTelegram(payload);
+  } catch (error) {
+    console.error("[Telegram] Failed to send notification:", error);
+  }
+
+  return { success: true };
 }
+

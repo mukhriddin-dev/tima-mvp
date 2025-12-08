@@ -49,7 +49,6 @@ export const ProductPage = memo(function ProductPage({
         style={{ paddingTop: "calc(44px + env(safe-area-inset-top))" }}
       >
         <div className="max-w-lg mx-auto">
-          {/* Image carousel - 60% of viewport height */}
           <div className="h-[60vh] md:h-[55vh] min-h-[350px] md:min-h-[400px]">
             <ImageCarousel
               images={images}
